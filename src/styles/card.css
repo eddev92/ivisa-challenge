@@ -1,0 +1,14 @@
+.main-client-card {
+  height: auto;
+  width: 100%;
+  margin: auto;
+  background: #e5e5e6;
+  padding: 0 25px;
+}
+.info-client-card span {
+  display: block;
+  text-align: left;
+}
+.main-client-card a {
+  /* display: ; */
+}

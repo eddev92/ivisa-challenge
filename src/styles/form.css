@@ -1,0 +1,74 @@
+.main-form-card span {
+  font-size: 0.7em;
+  display: block;
+}
+.security input {
+  width: 120px;
+}
+.exp-year input {
+  width: 120px;
+}
+.exp-month input {
+  width: 120px;
+}
+.num input {
+  width: 180px;
+}
+.credit input {
+  width: 180px;
+}
+.main-form-card .col-3, .main-form-card .col-2 {
+  padding: 0;
+}
+.main-form-card {
+  width: 100%;
+    margin: auto;
+    text-align: left;
+    padding-left: 20px;
+}
+ .list-buttons-cards {
+  width: 100%;
+  margin-bottom: 30px;
+ }
+ .msg-green img {
+  height: 30px;
+  margin-left: 30px;
+  cursor: none !important;
+ }
+ .msg-green span {
+   color: #00d408;
+   margin-left: 5px;
+ }
+ .msg-green {
+  display: inline-flex;
+ }
+ .msg-green span {
+  display: block;
+ }
+ .list-buttons-cards img {
+  height: 35px;  
+  cursor: pointer;
+ }
+ .list-buttons-cards .col-1 {
+  padding: 0;
+  text-align: center;
+ }
+ .footer-form {
+  margin: 22px auto;
+ }
+ .footer-form img {
+  height: 25px;
+ }
+ .footer-form .col-2 {
+  text-align: center;
+ }
+ .footer-form button {
+   width: 100%;
+   background: #00d408;
+   color: white;
+   border-radius: 5px;
+   outline: none;
+ }
+ .inputs {
+  text-align: center;
+ }
