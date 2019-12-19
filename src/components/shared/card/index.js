@@ -22,7 +22,7 @@ const CardComponent = ({ card = {}, handleCardForDefault = () => {}, deleteCard 
       </div>
       <div className="col-7">
         <div className="info-client-card">
-          <span>{getTypeCard} {card.number}</span>
+          <span>{getTypeCard} **** **** **** {card.number.slice(card.number.length-4)}</span>
           <span>Ex.Date: {card.expMonth}/{card.expYear}</span>
         </div> 
       </div>

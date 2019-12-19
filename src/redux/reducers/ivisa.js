@@ -60,9 +60,14 @@ const ivisa = (state = defaultState, action) => {
           && (index === indexAux)) {
             card.isDefault = true;
           }
+          else {
+            card.isDefault = false;
+          }
           return card;
       })
-      
+      aux.splice(state.cards.indexOf(action.cardSelected), 1)
+      aux.splice(0, 0, cardSelected)
+      console.log(aux)
       return  {
         ...state,
         cards: aux

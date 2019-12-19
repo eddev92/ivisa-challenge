@@ -18,7 +18,7 @@ const TabsComponent = ({ showAddClient = false, client = {} , hiddenAddClient = 
         <span>MY<br/> CARDS</span>
       </div>
       <div className="col-2">
-        <span>MY ACCOUNT</span>
+        <span>MY<br/>  ACCOUNT</span>
       </div>
     </div>
   )
