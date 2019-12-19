@@ -4,8 +4,8 @@ export const defaultValues = {
   card: {
     name: "",
     number: "",
-    expMonth: null,
-    expYear: null,
+    expMonth: "",
+    expYear: "",
     securityCode: "",
     typeCard: null,
     isDefault: false,

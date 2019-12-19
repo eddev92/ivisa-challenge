@@ -35,11 +35,11 @@ export const deleteCard = (card) => {
   }
 }
 
-//   export const resetValues = () => {
-//     return {
-//       type: RESET_VALUES.RESET_CLIENT_VALUES
-//     }
-//   }
+export const resetValues = () => {
+  return {
+    type: RESET_VALUES_ACTION.RESET_VALUES
+  }
+}
 
 export const changeDefaultCard = (card) => {
   return {

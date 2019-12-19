@@ -1,10 +1,7 @@
 import React from 'react';
-import FormComponent from '../shared/body';
 import './../../styles/home.css';
 
-const TabsComponent = ({ showAddClient = false, client = {} , hiddenAddClient = () => {}, handleChange = () => {}, addClient = () => {} }) => {
-  console.log(showAddClient)
-  // if (showAddClient) return 
+const TabsComponent = () => {
 
   return (
     <div className="main-home row">

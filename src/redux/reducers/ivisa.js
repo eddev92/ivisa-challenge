@@ -67,12 +67,20 @@ const ivisa = (state = defaultState, action) => {
       })
       aux.splice(state.cards.indexOf(action.cardSelected), 1)
       aux.splice(0, 0, cardSelected)
-      console.log(aux)
       return  {
         ...state,
         cards: aux
       }
     }
+
+    case RESET_VALUES_ACTION.RESET_VALUES:
+      return {
+        ...state,
+        card: defaultState.card,
+        cardSelected: null,
+        cardSelectedForChangeDefault: null
+
+      }
 
     default:
       return state
