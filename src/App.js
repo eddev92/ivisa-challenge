@@ -42,6 +42,9 @@ class App extends Component {
 			this.props.card.typeCard &&
 			this.props.card.securityCode &&
 			this.props.card.expYear) {
+				if (this.props.card.number.length !== 16) {
+					return alert('Card number should have only 16 digits!');
+				}
 				 this.props.addCard(this.props.card);
 				 this.props.resetValues();
 				 return this.showForm();

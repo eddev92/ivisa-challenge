@@ -11,6 +11,10 @@
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
   border: 1px solid #e5e5e5;
 }
+.border-bttm {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 15px;
+}
 
 .main-body-content-tab {
   width: 75%;
@@ -19,12 +23,10 @@
 }
 .title-body {
   float: left;
-  /* display: block; */
+  color: mediumblue;
   width: 100%;
   text-align: left;
   padding: 15px 22px;
-  /* margin-bottom: 20px; */
-  /* border-bottom: 1px solid #e5e5e5; */
 }
 .list-cards ul {
   padding: 0 20px;

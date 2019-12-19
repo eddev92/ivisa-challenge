@@ -4,13 +4,13 @@ import CardComponent from '../card';
 import FormCardComponent from '../form';
 
 const BodyComponent = ({ cards, openForm = () => {}, showForm, handleChange = () => {}, card = {}, selectTypeCard = () => {}, addClient = () => {}, cardSelected, deleteCard = () => {}, handleCardForDefault = () => {} }) => {
-  const listCards = cards && cards.map(card => {
-    return <CardComponent card={card} deleteCard={deleteCard} handleCardForDefault={handleCardForDefault} />
+  const listCards = cards && cards.map((card, index) => {
+    return <CardComponent card={card} deleteCard={deleteCard} handleCardForDefault={handleCardForDefault} index={index} />
   })
   return (
     <div className="main-body-content-tab row">
       <div className="list-cards col-12">
-        <span className="title-body">My Cards</span>
+        <span className="title-body border-bttm">My Cards</span>
         <ul>
           {listCards && listCards}
           {!cards.length && <span className="title-body-empty">Empty section</span>}

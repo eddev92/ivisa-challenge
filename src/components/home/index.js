@@ -6,10 +6,10 @@ const TabsComponent = () => {
   return (
     <div className="main-home row">
       <div className="col-2">
-        <span>MY APPLICATIONS</span>
+        <span>MY<br/> APPLICATIONS</span>
       </div>
       <div className="col-2">
-        <span>MY TRAVEKERS</span>
+        <span>MY<br/> TRAVEKERS</span>
       </div>
       <div className="col-2">
         <span>MY<br/> CARDS</span>

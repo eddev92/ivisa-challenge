@@ -2,12 +2,12 @@ import React from 'react';
 import '../../../styles/card.css';
 import { TranformData } from '../../../utils/transform';
 
-const CardComponent = ({ card = {}, handleCardForDefault = () => {}, deleteCard = () => {} }) => {
+const CardComponent = ({ card = {}, handleCardForDefault = () => {}, deleteCard = () => {}, index }) => {
   const getTypeCard = TranformData.getTypeCard(card.typeCard);
   const getLogoCard = TranformData.getLogoCard(card.typeCard);
 
   return (
-    <li className="main-client-card row">
+    <li className="main-client-card row" key={`card-${index}`}>
       <div className="col-1 section-img-check">
       {
         (card && card.isDefault) ?
