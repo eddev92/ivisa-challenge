@@ -31,3 +31,10 @@
  .links {
   padding-top: 12px;
  }
+ .remove-btn {
+   color: #bbb !important;
+ }
+ .default-btn {
+  color: blue !important;
+  font-weight: 700;
+}

@@ -28,8 +28,8 @@ const CardComponent = ({ card = {}, handleCardForDefault = () => {}, deleteCard 
       </div>
          <div className="col-2 links">
         {/* <button className="col-12" onClick={addCard.bind(this, client, position)}>Add Card</button> */}
-          <a onClick={deleteCard.bind(this, card)}>Remove</a>
-          <a  data-toggle="modal" data-target="#exampleModal" onClick={handleCardForDefault.bind(this, card)}>Default</a>
+          <a className="remove-btn" onClick={deleteCard.bind(this, card)}>Remove</a>
+          <a className="default-btn" data-toggle="modal" data-target="#exampleModal" onClick={handleCardForDefault.bind(this, card)}>Default</a>
         </div>
     </li>
   )
