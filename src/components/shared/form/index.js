@@ -2,7 +2,7 @@ import React from 'react';
 import { TranformData } from '../../../utils/transform';
 import '../../../styles/form.css';
 
-const FormCardComponent = ({ show, addClient = () => {}, handleChange = () => {}, card = {}, selectTypeCard = () => {}, cardSelected  }) => {
+const FormCardComponent = ({ show, addClient = () => {}, handleChange = () => {}, card = {}, selectTypeCard = () => {} }) => {
   const months = TranformData.generateMonths();
   const optionsMonths = months.map(month => <option value={month.month}>{month.month}</option>);
   const years = TranformData.generateYears();
@@ -17,16 +17,16 @@ const FormCardComponent = ({ show, addClient = () => {}, handleChange = () => {}
             <span>WE Accept All<br />Debit / Credit  Cards</span>
           </div>
           <div className="col-1 ">
-            <img src="images/visa.png" className={cardSelected === 1 ? 'isSelected' : ''} onClick={selectTypeCard.bind(this, 1)} />
+            <img src="images/visa.png" className={card.typeCard === 1 ? 'isSelected' : ''} onClick={selectTypeCard.bind(this, 1)} />
           </div>
           <div className="col-1 ">
-            <img src="images/mastercard.png" className={cardSelected === 2 ? 'isSelected' : ''} onClick={selectTypeCard.bind(this, 2)} />
+            <img src="images/mastercard.png" className={card.typeCard === 2 ? 'isSelected' : ''} onClick={selectTypeCard.bind(this, 2)} />
           </div>
           <div className="col-1 ">
-            <img src="images/discover.png" className={cardSelected === 3 ? 'isSelected' : ''} onClick={selectTypeCard.bind(this, 3)} />
+            <img src="images/discover.png" className={card.typeCard === 3 ? 'isSelected' : ''} onClick={selectTypeCard.bind(this, 3)} />
           </div>
           <div className="col-1 ">
-            <img src="images/american.png" className={cardSelected === 4 ? 'isSelected' : ''} onClick={selectTypeCard.bind(this, 4)} />
+            <img src="images/american.png" className={card.typeCard === 4 ? 'isSelected' : ''} onClick={selectTypeCard.bind(this, 4)} />
           </div>
         </div>
         <div className="row w100p inputs">
@@ -41,7 +41,7 @@ const FormCardComponent = ({ show, addClient = () => {}, handleChange = () => {}
           <div className="col-2 exp-month">
             <span>Exp. Month</span>
               <select value={card.expMonth} id="expMonth" onChange={handleChange.bind(this)}>
-              <option value="">Selecciona</option>
+              <option value="">Choose</option>
               {optionsMonths}
             </select>
             {/* <input value={card.expMonth} type="number" id="expMonth" onChange={handleChange.bind(this)} /> */}
@@ -49,7 +49,7 @@ const FormCardComponent = ({ show, addClient = () => {}, handleChange = () => {}
           <div className="col-2 exp-year">
             <span>Exp. Year</span>
             <select value={card.expYear} id="expYear" onChange={handleChange.bind(this)}>
-              <option value="">Selecciona</option>
+              <option value="">Choose</option>
               {optionsYears}
             </select>
             {/* <input value={card.expYear} type="number" id="expYear" onChange={handleChange.bind(this)} /> */}
