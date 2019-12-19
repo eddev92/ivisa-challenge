@@ -2,16 +2,16 @@ import {
   CARD_ACTION, RESET_VALUES_ACTION,
 } from "../../constants/actions";
 
-// export const addClient = (client) => {
-//   return {
-//     type: CLIENT_ACTION.CLIENT_ACTION_ADD_CLIENT,
-//     client,
-//   }
-// }
+export const addCard = (card) => {
+  return {
+    type: CARD_ACTION.CARD_ACTION_ADD_CARD,
+    card,
+  }
+}
 
 export const showFormCard = () => {
   return {
-    type: CARD_ACTION.CARD_ACTION_ADD_CLIENT
+    type: CARD_ACTION.CARD_ACTION_SHOW_ADD_CLIENT
   }
 }
 
@@ -21,20 +21,19 @@ export const showFormCard = () => {
 //   }
 // }
 
-// export const handleChange = (value, id) => {
-//   return {
-//     type: CLIENT_ACTION.CLIENT_ACTION_HANDLE_INFO_CLIENT,
-//     value,
-//     id
-//   }
-// }
-//   export const deleteClient = (client, position) => {
-//     return {
-//       type: CLIENT_ACTION.CLIENT_ACTION_DELETE_CLIENT,
-//       clientSelected: client,
-//       positionSelected: position
-//     }
-//   }
+export const handleChange = (value, id) => {
+  return {
+    type: CARD_ACTION.CARD_ACTION_HANDLE_INFO_CARD,
+    value,
+    id
+  }
+}
+export const deleteCard = (card) => {
+  return {
+    type: CARD_ACTION.CARD_ACTION_DELETE_CARD,
+    cardSelected: card,
+  }
+}
 
 //   export const resetValues = () => {
 //     return {
@@ -42,10 +41,17 @@ export const showFormCard = () => {
 //     }
 //   }
 
-//   export const updateClients = (newListClients) => {
-//     return {
-//       type: CLIENT_ACTION.CLIENT_ACTION_UPDATE_CLIENTS,
-//       newListClients
-//     }
-//   }
+export const changeDefaultCard = (card) => {
+  return {
+    type: CARD_ACTION.CARD_ACTION_CHANGE_DEFAULT_CARD,
+    cardSelected: card,
+  }
+}
+
+export const changeDefaultCardOk = (card) => {
+  return {
+    type: CARD_ACTION.CARD_ACTION_CHANGE_DEFAULT_CARD_OK,
+    cardSelected: card,
+  }
+}
 

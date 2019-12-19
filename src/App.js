@@ -4,19 +4,20 @@ import './App.css';
 // import TabsComponent from './components/home';
 import firebase from 'firebase';
 import { 
-	showFormCard
+	showFormCard,
 	// hiddenAddClient,
-	// handleChange,
-	// addClient,
-	// deleteClient,
-	// resetValues,
-	// updateClients
+	handleChange,
+	addCard,
+	deleteCard,
+	changeDefaultCard,
+	changeDefaultCardOk
 } from './redux/actions';
 import config from './config';
 import TabsComponent from './components/home';
 // import { USER_CREDENTIALS } from './constants/constants';
 // import IntercorpRetailServices from './services/services';
 import BodyComponent from './components/shared/body';
+import ModalComponent from './components/shared/modal';
 
 firebase.initializeApp(config);
 const publicationRef = firebase.database();
@@ -63,15 +64,16 @@ class App extends Component {
 	// 		console.log("ERROR: " + error.code);
 	// 	});
 	// }
-	// handleChange = (e) => {
-	// 	if (e) {
-	// 		const value = e.target.value;
-	// 		const id = e.target.id;
+	handleChange = (e) => {
+		console.log(e)
+		if (e) {
+			const value = e.target.value;
+			const id = e.target.id;
 
-	// 		return this.props.handleChange(value, id);
-	// 	}
-	// 	return null;
-	// }
+			return this.props.handleChange(value, id);
+		}
+		return null;
+	}
 	// showAddClientForm = () => {
 	// 	return this.props.showAddClient()
 	// }
@@ -79,59 +81,67 @@ class App extends Component {
 	// 	this.props.resetValues();
 	// 	return this.props.hiddenAddClient()
 	// }
-	// addClient = () => {
-	// 	if (this.props.client &&
-	// 		this.props.client.names &&
-	// 		this.props.client.lastNames &&
-	// 		this.props.client.age &&
-	// 		this.props.client.date) {
-	// 			if (this.props.client.age > 76) {
-	// 				return alert("Edad no puede superar los 76 años para registrarse como cliente TITULAR")
-	// 			}
-	// 			const service = new IntercorpRetailServices(ref);
-				
-	// 			this.props.resetValues();
-	// 			this.props.hiddenAddClient();
-	// 			return service.saveClient(this.props.client)
-	// 		}
-	// 		else return alert('Todos los campos son requeridos')
-	// }
-	// deleteClient = (client, position) => {
-	// 	const service = new IntercorpRetailServices(ref);
-	
-	// 	this.props.deleteClient(client, position);
-	// 	return service.deleteClientDB(client);
-	// }
-
-	// calculateEstimatedAge = () => {
-	// 	if (this.props.clients) {
-	// 		const ages = this.props.clients.map(client => {
-	// 			client.age = Number(client.age);
-	// 			return client.age;
-	// 		})
-	// 		if (ages.length > 0) {
-	// 			const acum = ages.reduce((a,b) => a + b);
-
-	// 			return acum/this.props.clients.length;
-	// 		}
-	// 	}
-	// 	return null;
-	// }
-	// showProbability = (client) => {
-	// 	return alert(`La probabilidad de muerte de esta persona es dentro de ${75 - client.age} años`)
-	// }
-	showForm = () => {
-	
+	addClient = () => {
+		if (this.props.card &&
+			this.props.card.name &&
+			this.props.card.number &&
+			this.props.card.expMonth &&
+			this.props.card.typeCard &&
+			this.props.card.securityCode &&
+			this.props.card.expYear) {
+				// const service = new IntercorpRetailServices(ref);
+					// if (this.props.card.number.length !== 16) {
+					// 	return alert("Credit Card number is invalid, should have 16 digits.")
+					// }
+				// this.props.resetValues();
+				 this.props.addCard(this.props.card);
+				 return this.showForm();
+				// return service.saveClient(this.props.client)
+			}
+			else return alert('All inputs are required')
+	}
+	deleteCard = (card) => {
+		// const service = new IntercorpRetailServices(ref);
+		console.log(card)
+		this.props.deleteCard(card);
+		// return service.deleteClientDB(client);
+	}
+	changeDefault = () => {
+		if (this.props.cardSelectedForChangeDefault) return this.props.changeDefaultCardOk(this.props.cardSelectedForChangeDefault)
+	}
+	handleCardForDefault = (card) => {
+		this.props.changeDefaultCard(card)
+	}
+	selectTypeCard = (type) => {
+		if (type) {
+			return this.props.handleChange(type, "typeCard");
+		}
+		return null;
+	}
+	showForm = () => {	
 		this.props.showFormCard();
 	}
   render() {
-    const { showForm } = this.props;
+    const { showForm, card, cards, cardSelected } = this.props;
 		// const ageAverage = this.calculateEstimatedAge();
-
+		console.log(cardSelected)
+		console.log(cards)
 		return (
 			<div className="App">
-					<TabsComponent />
-					<BodyComponent openForm={this.showForm} showForm={showForm} />
+					<TabsComponent cards={cards} />
+					<BodyComponent 
+						cards={cards}
+						openForm={this.showForm}
+						showForm={showForm}
+						handleChange={this.handleChange}
+						card={card}
+						selectTypeCard={this.selectTypeCard}
+						addClient={this.addClient}
+						cardSelected={cardSelected}
+						deleteCard={this.deleteCard}
+						handleCardForDefault={this.handleCardForDefault}
+					/>
+					<ModalComponent changeDefault={this.changeDefault} />
 			</div>
   );  
 }
@@ -139,21 +149,23 @@ class App extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-		// client: state.intercorp.client,
-		// clients: state.intercorp.clients,
+		card: state.ivisa.card,
+		cardSelected: state.ivisa.cardSelected,
+		cards: state.ivisa.cards,
 		showForm: state.ivisa.showForm,
+		cardSelectedForChangeDefault: state.ivisa.cardSelectedForChangeDefault
   } 
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
 		showFormCard: () => { dispatch(showFormCard()) },
-		// hiddenAddClient: () => { dispatch(hiddenAddClient()) },
-		// handleChange: (value, id) => { dispatch(handleChange(value, id)) },
-		// addClientForm: (client) => { dispatch(addClient(client)) },
-		// deleteClient: (client, position) => { dispatch(deleteClient(client, position)) },
+		changeDefaultCard: (card) => { dispatch(changeDefaultCard(card)) },
+		handleChange: (value, id) => { dispatch(handleChange(value, id)) },
+		addCard: (card) => { dispatch(addCard(card)) },
+		deleteCard: (card) => { dispatch(deleteCard(card)) },
 		// resetValues: () => { dispatch(resetValues()) },
-		// updateClients: (newListClients) => { dispatch(updateClients(newListClients)) },
+		changeDefaultCardOk: (card) => { dispatch(changeDefaultCardOk(card)) },
     }
 }
 

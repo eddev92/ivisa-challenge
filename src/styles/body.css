@@ -1,13 +1,12 @@
 .main-body-content-tab .list-cards{
   background: white;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   padding: 0;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
   border: 1px solid #e5e5e5;
 }
 .button-add-card{
   background: white;
-  margin-bottom: 50px;
   padding: 0;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
   border: 1px solid #e5e5e5;
@@ -24,8 +23,8 @@
   width: 100%;
   text-align: left;
   padding: 15px 22px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #e5e5e5;
+  /* margin-bottom: 20px; */
+  /* border-bottom: 1px solid #e5e5e5; */
 }
 .list-cards ul {
   padding: 0 20px;

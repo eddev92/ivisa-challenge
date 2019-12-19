@@ -4,11 +4,30 @@
   margin: auto;
   background: #e5e5e6;
   padding: 0 25px;
+  margin-bottom: 10px;
 }
 .info-client-card span {
   display: block;
   text-align: left;
+  font-size: 0.7em;
 }
-.main-client-card a {
-  /* display: ; */
+.info-client-card {
+  margin: 11px 0;
 }
+.section-img-card img {
+  width: 60px;
+  margin: 14px 0;
+}
+.section-img-check img {
+  margin: 23px 0;
+  height: 15px;
+ }
+ .main-client-card a {
+  font-size: 0.7em;
+  margin: 5px;
+  text-decoration: underline !important;
+  cursor: pointer;
+ }
+ .links {
+  padding-top: 12px;
+ }
