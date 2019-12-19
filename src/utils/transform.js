@@ -29,4 +29,33 @@ export class TranformData {
     }
     return result;
   }
+
+  static generateMonths() {
+    let result = [];
+
+    for (let i = 1; i < 13; i++ ) {
+      result.push({month: `${i < 10 ? `0${i}` : i }`});
+    }
+
+    return result;
+  }
+
+  static generateYears() {
+    let aux1 = [];
+    let aux2 = [];
+    let result = [];
+    const currentYear = Number(new Date().getFullYear());
+  
+    for (let i = currentYear-5; i < currentYear; i++ ) {
+      aux1.push({yearNum: i});
+    }
+
+    for (let i = currentYear; i < currentYear + 15; i++ ) {
+      aux2.push({yearNum: i});
+    }
+
+    result =  aux1.concat(aux2);
+    return result;
+  }
+
 }

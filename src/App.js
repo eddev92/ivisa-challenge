@@ -74,7 +74,7 @@ class App extends Component {
 
 		return (
 			<div className="App">
-					<TabsComponent cards={cards} />
+					<TabsComponent />
 					<BodyComponent 
 						cards={cards}
 						openForm={this.showForm}

@@ -1,7 +1,13 @@
 import React from 'react';
+import { TranformData } from '../../../utils/transform';
 import '../../../styles/form.css';
 
 const FormCardComponent = ({ show, addClient = () => {}, handleChange = () => {}, card = {}, selectTypeCard = () => {}, cardSelected  }) => {
+  const months = TranformData.generateMonths();
+  const optionsMonths = months.map(month => <option value={month.month}>{month.month}</option>);
+  const years = TranformData.generateYears();
+  const optionsYears = years.map(year => <option value={year.yearNum}>{year.yearNum}</option>);
+
   if (show) {
     return (
       <div className="main-form-card row">
@@ -34,11 +40,19 @@ const FormCardComponent = ({ show, addClient = () => {}, handleChange = () => {}
           </div>
           <div className="col-2 exp-month">
             <span>Exp. Month</span>
-            <input value={card.expMonth} type="number" id="expMonth" onChange={handleChange.bind(this)} />
+              <select value={card.expMonth} id="expMonth" onChange={handleChange.bind(this)}>
+              <option value="">Selecciona</option>
+              {optionsMonths}
+            </select>
+            {/* <input value={card.expMonth} type="number" id="expMonth" onChange={handleChange.bind(this)} /> */}
           </div>
           <div className="col-2 exp-year">
             <span>Exp. Year</span>
-            <input value={card.expYear} type="number" id="expYear" onChange={handleChange.bind(this)} />
+            <select value={card.expYear} id="expYear" onChange={handleChange.bind(this)}>
+              <option value="">Selecciona</option>
+              {optionsYears}
+            </select>
+            {/* <input value={card.expYear} type="number" id="expYear" onChange={handleChange.bind(this)} /> */}
           </div>
           <div className="col-2 security">
             <span>Security Code</span>
